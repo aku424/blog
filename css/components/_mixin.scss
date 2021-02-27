@@ -1,0 +1,49 @@
+$breakpoints: (
+//キー  値
+    'xs': 'screen and (max-width: 376px)',
+    's': 'screen and (max-width: 501px)', //767px以下（スマホ）用の表示
+    'sm': 'screen and (max-width: 768px)', //767px以下（スマホ）用の表示
+    'smm': 'screen and (max-width: 900px)', //767px以下（スマホ）用の表示
+    'md': 'screen and (max-width: 125s0px)', //1024px以上（タブレット・PC）用の表示
+    'xl': 'screen and (min-width: 1251px)'
+
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+    }
+}
+@include mq(md){
+    .is-sp{
+        display: none;
+    }
+}
+@include mq(sm){
+    .is-pc{
+        display: none;
+    }
+}
+
+// color
+$c-w : #fff;
+$c-b : #333;
+$c-main:  rgb(13,77,153);
+$c-main_w: rgb(231,245,252);
+
+// font-size
+$fz_t : 42px;
+$fz_st : 32px;
+$fz_l: 28px;
+$fz_ml : 24px;
+$fz_sm : 20px;
+$fz_m: 18px;
+$fz_b : 16px;
+$fz_bq :14px;
+$fz_s :12px;
+
+//font-weight
+$b :bold; 
